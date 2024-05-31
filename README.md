@@ -28,7 +28,7 @@ Leaf Voting System is a simple web application designed to facilitate voting ses
 
 3. Install dependencies using npm install.
 
-4. Create a .env.local file in the Root Diractory and add your MongoDB URI **(example: MONGODB_URI="mongodb+srv://<NAME>:<PASSWORD>@mongodb.net/")**
+4. Create a .env.local file in the Root Diractory and add your MongoDB URI **(example: MONGODB_URI="your_database_uri")**
 
 5. Start the development server using npm run dev.
 
