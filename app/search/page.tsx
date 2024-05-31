@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const [sessionID, setSessionID] = useState<string | null>(null);
 
@@ -92,4 +92,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

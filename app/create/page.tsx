@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { FaRegMinusSquare, FaRegPlusSquare } from "react-icons/fa";
 
-const page = () => {
+const Page = () => {
   const [sTitle, setSTitle] = useState("");
   const [titles, setTitles] = useState([""]);
   const [expiry, setExpiry] = useState(1);
@@ -144,4 +144,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
