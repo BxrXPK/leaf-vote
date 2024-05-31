@@ -45,7 +45,7 @@ const Page = () => {
 
   useEffect(() => {
     fetchSession();
-  }, [sid]);
+  }, [sid, fetchSession]);
 
   useEffect(() => {
     if (!session) return;
