@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -9,6 +9,7 @@ import { FaRegCopy } from "react-icons/fa";
 import { Isid } from "@/models/sid";
 
 const Page = () => {
+  const { toast } = useToast();
   const [session, setSession] = useState<Isid | null>(null);
   const [loading, setLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0 });
@@ -16,13 +17,7 @@ const Page = () => {
   const pathname = usePathname();
   const sid = pathname.split("/").pop();
 
-  const { toast } = useToast();
-
-  if (!pathname) {
-    return <div>Session ID not found</div>;
-  }
-
-  const fetchSession = async () => {
+  const fetchSession = useCallback(async () => {
     try {
       if (!sid) return;
 
@@ -41,11 +36,11 @@ const Page = () => {
     } catch (error) {
       setLoading(false);
     }
-  };
+  }, [sid]);
 
   useEffect(() => {
     fetchSession();
-  }, [sid, fetchSession]);
+  }, [fetchSession]);
 
   useEffect(() => {
     if (!session) return;
@@ -68,7 +63,11 @@ const Page = () => {
     calculateTimeLeft();
 
     return () => clearInterval(timerId);
-  }, [session]);
+  }, [session, fetchSession]);
+
+  if (!pathname) {
+    return <div>Session ID not found</div>;
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -118,6 +117,7 @@ const Page = () => {
   };
 
   if (loading) return <div>Loading...</div>;
+
   if (!session) return <div>Session not found</div>;
 
   const copyUrl = (e: any) => {
