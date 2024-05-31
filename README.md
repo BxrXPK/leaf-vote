@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Leaf Voting System
 
-## Getting Started
+Leaf Voting System is a simple web application designed to facilitate voting sessions among friends or groups. It provides an easy-to-use interface for creating voting sessions, submitting votes, and viewing the results.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Session Creation:** Users can create voting sessions by providing a title and list of options.
+- **Real-time Updates:** The system provides real-time updates on the remaining time for each session.
+- **Secure Access:** Each session is assigned a unique Session ID (SID) which can be used to access the session securely.
+- **Vote Submission:** Participants can submit their votes easily by selecting options and submitting.
+- **Result Display:** Results are displayed in real-time, showing the current status of votes for each option.
+- **Copy URL:** Users can easily copy the URL of the session to share it with others.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend:** React.js with Next.js for server-side rendering and routing.
+- **Styling:** Tailwind CSS for rapid UI development and styling.
+- **Backend:** Node.js for server-side logic and handling API requests.
+- **Database:** MongoDB for storing session data.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+**To run the application locally, follow these steps**
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone this repository to your local machine.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Navigate to the project directory.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Install dependencies using npm install.
 
-## Deploy on Vercel
+4. Create a .env.local file in the Root Diractory and add your MongoDB URI **(example: MONGODB_URI="mongodb+srv://<NAME>:<PASSWORD>@mongodb.net/")**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Start the development server using npm run dev.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+6. Access the application in your browser at http://localhost:3000.
+
+## Usage
+
+1. **Creating a Session:** Click on the "Create Session" button and provide a title along with the voting options.
+
+2. **Joining a Session:** Access a session by entering the Session ID (SID) in the search bar and clicking on "Search".
+
+3. **Submitting Votes:** Select the desired options and click on "Submit Votes" to submit your votes.
+
+4. **Viewing Results:** Results are displayed in real-time after votes are submitted, showing the current status of each option.
+
+5. **Copying Session URL:** Click on "Copy URL" to copy the session URL and share it with others.
+
+## Screenshots
+
+Homepage:
+<img src="/public/home.png" alt="Home Page Screenshot">
+
+Session Creation:
+<img src="/public/create.png" alt="Votes Creating">
+<img src="/public/creating.png" alt="Votes Creating 2">
+
+Search Votings:
+<img src="/public/search.png" alt="Search Votes">
+
+Voting Session:
+<img src="/public/sidvotes.png" alt="Voting Sessions">
